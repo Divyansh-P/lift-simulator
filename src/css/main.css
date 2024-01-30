@@ -1,0 +1,114 @@
+body{
+    margin: 0;
+    padding: 0%;
+}
+
+.header{
+    display: flex;
+justify-content: center;
+margin-top: 2rem;
+}
+
+#generate{
+    cursor: pointer;
+}
+
+.fd{
+    margin-right: 2rem;
+}
+.fd2{
+    margin-right: 2rem;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-top: 8rem;
+}
+
+.floor{
+    display: flex;
+    width: 100vw;
+    height: 100px;
+    align-items: center;
+    border-bottom:1px solid black ;
+    box-sizing: border-box;
+}
+
+.buttonup{
+    width: 3rem;
+    height: 2rem;
+    background: red;
+    cursor: pointer;
+}
+.buttondown{
+    width: 3rem;
+    height: 2rem;
+    background: green;
+    cursor: pointer;
+}
+
+.floorbutton{
+    width: 10rem;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 5rem;
+}
+
+.floornumber{
+    width: 2rem;
+   right: 1rem;
+   position: absolute;
+}
+
+.liftcontainer{
+    width: 4rem;
+    height: 100px;
+    background-color: black;
+    display: flex; 
+    margin-right: 3rem;
+    justify-content: space-between;
+    border: 2px solid black;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.leftdoor{
+    width: 48%;
+     background:grey; 
+}
+.rightdoor{
+    width: 48%;
+    background:grey;
+}
+
+@media screen and (max-width:500px) {
+
+    .header{
+        flex-direction: column;
+        align-items: center;
+    }
+    .fd,.fd2{
+        margin-bottom: 1rem;
+    }
+    #generate{
+        width: 5rem;
+    }
+
+    .floorbutton{
+        width: 5rem;
+        margin-right: 2rem;
+    }
+
+    .buttondown,.buttonup{
+        width: 2rem;
+        font-size: xx-small;
+    }
+
+    .liftcontainer{
+        width: 2.5rem;
+    }
+    
+}
