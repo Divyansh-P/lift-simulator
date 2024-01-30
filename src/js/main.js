@@ -7,6 +7,8 @@ let liftarray=[]
 let checkLoop;
 let w;
 let maxl;
+let minv=1
+let minv2=2
 let f=1
 class queue{
     constructor(){
@@ -124,10 +126,15 @@ return floorel
  }
 
  generatebutton.addEventListener('click',()=>{
-    if(lifts.value>maxl){
-        alert(`lift limit exceeds select between 1 to ${maxl}`)
+    if(lifts.value>maxl||lifts.value<minv){
+        alert(`invalid lift input select between 1 to ${maxl}`)
         return
     }
+    if(floors.value<minv2){
+        alert(`invalid floor input select value > 2 `)
+        return
+    }
+ 
     clearInterval(checkLoop)
     q.reset()
     createfloors()
