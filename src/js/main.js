@@ -32,6 +32,14 @@ class queue{
         return false
     }
    }
+   ispresent(x){
+    this.state.map(y=>{
+        if(y==x){
+            return true
+        }
+    })
+    return false
+   }
   reset(){
     this.state=[]
   }
@@ -153,7 +161,10 @@ return floorel
    else{
     n=+(id.substr(10))
    }
-   q.enqueue(n)
+   
+    q.enqueue(n)
+   
+   
  }
 
 const callbuttonhandler=()=>{
@@ -236,32 +247,44 @@ lft.style.transition=`transform  ease-in-out ${time}s`
 const getNearestLift=(floor)=>{
 let nearestlift;
 let minDistance=Infinity
+
+let f=0;
+
 for(let lift of liftarray){
-    if(!lift.moving&&Math.abs(floor-lift.currentFloor<minDistance)){
-        minDistance=Math.abs(floor-lift.currentFloor)
-        nearestlift=lift
+    if(lift.moving&&lift.currentFloor==floor){
+      nearestlift=404
+      f=1;
     }
 }
+if(f==0){
+    for(let lift of liftarray){
+        if(!lift.moving&&Math.abs(floor-lift.currentFloor<minDistance)){
+            minDistance=Math.abs(floor-lift.currentFloor)
+            nearestlift=lift
+        }
+    }
+}
+
 return nearestlift
 }
 
 const checkstatus=()=>{
    
     if(q.isempty()){
-        console.log('working1')
         return
 
     }
   let floor=q.dequeue()
   let lift=getNearestLift(floor)
   if(!lift){
-    console.log('working2')
     q.undodequeue(floor)
+    return
+  }
+  if(lift==404){
     return
   }
   
 movelift(lift,floor)
-console.log('working3')
 }
 
 const maxdecider=()=>{

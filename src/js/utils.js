@@ -20,6 +20,16 @@ export class queue{
         return false
     }
    }
+
+   ispresent(x){
+    this.state.map(y=>{
+        if(y==x){
+            return true
+        }
+    })
+    return false
+   }
+
   reset(){
     this.state=[]
   }
